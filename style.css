@@ -1,7 +1,7 @@
 #container {
   border: 2px solid red;
   height: auto;
-  width: 320px;
+  width: 640px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
@@ -9,6 +9,6 @@
 
 #gridDivs {
   outline: 1px solid black;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
 }
