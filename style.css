@@ -12,11 +12,11 @@ body {
   flex-wrap: wrap;
 }
 
-#gridDivs {
+/* #gridDivs {
   outline: 1px solid black;
   width: 10px;
   height: 10px;
-}
+} */
 
 #reset-button {
   padding: 5px 20px;
