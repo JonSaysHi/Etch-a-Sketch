@@ -11,7 +11,7 @@ function createGrid(gridSize) {
     container.appendChild(divs);
     divs.classList.add("gridDivs");
     divs.addEventListener("mouseover", () => {
-      divs.style.backgroundColor = "pink";
+      divs.style.backgroundColor = "black";
     });
   }
 }
