@@ -4,16 +4,13 @@ const resetButton = document.querySelector("#reset-button");
 let gridSize = 16;
 
 function createGrid(gridSize) {
+  container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+  container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
   for (let i = 0; i < gridSize * gridSize; i++) {
     const gridDivs = document.createElement("div");
-    gridDivs.classList.add("gridDivs");
-    gridDivs.setAttribute("id", "gridDivs");
-    container.appendChild(gridDivs);
-    container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
-    container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+    container.appendChild(gridDivs).className = "gridDivs";
     gridDivs.addEventListener("mouseover", () => {
-      gridDivs.classList.add("blackDivs");
-      // gridDivs.style.backgroundColor = "black";
+      gridDivs.style.backgroundColor = "pink";
     });
   }
 }
@@ -21,8 +18,10 @@ function createGrid(gridSize) {
 createGrid(gridSize);
 
 resetButton.addEventListener("click", () => {
+  sizeOfGrid();
+});
+
+function sizeOfGrid() {
   let gridSize = prompt("What grid size would you like? (x * x)", "");
   createGrid(gridSize);
-  let allGridDivs = document.querySelectorAll("#gridDivs");
-  allGridDivs.style.backgroundColor = "white";
-});
+}
