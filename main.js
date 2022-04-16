@@ -7,13 +7,16 @@ function createGrid(gridSize) {
   container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
   container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
   for (let i = 0; i < gridSize * gridSize; i++) {
-    const gridDivs = document.createElement("div");
-    container.appendChild(gridDivs).className = "gridDivs";
-    gridDivs.addEventListener("mouseover", () => {
-      gridDivs.style.backgroundColor = "pink";
+    const divs = document.createElement("div");
+    container.appendChild(divs);
+    divs.classList.add("gridDivs");
+    divs.addEventListener("mouseover", () => {
+      divs.style.backgroundColor = "pink";
     });
   }
 }
+
+const gridDivs = container.querySelectorAll(".gridDivs");
 
 createGrid(gridSize);
 
