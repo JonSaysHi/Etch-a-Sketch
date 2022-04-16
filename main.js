@@ -16,15 +16,23 @@ function createGrid(gridSize) {
   }
 }
 
-const gridDivs = container.querySelectorAll(".gridDivs");
-
 createGrid(gridSize);
 
 resetButton.addEventListener("click", () => {
+  clearGrid();
   sizeOfGrid();
 });
 
+function clearGrid() {
+  document.querySelectorAll(".gridDivs").forEach((e) => e.remove());
+}
+
 function sizeOfGrid() {
-  let gridSize = prompt("What grid size would you like? (x * x)", "");
-  createGrid(gridSize);
+  let gridSize = prompt("Please enter a grid size between 1-100 (x * x)", "");
+  if (gridSize < 1 || gridSize > 100) {
+    alert("ERROR! Grid size must be between 1-100.");
+    createGrid(16);
+  } else {
+    createGrid(gridSize);
+  }
 }
