@@ -24,3 +24,7 @@ body {
   font-size: 15px;
   margin: auto;
 }
+
+.blackDivs {
+  background-color: black;
+}
