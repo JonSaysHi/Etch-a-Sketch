@@ -1,13 +1,17 @@
 const container = document.querySelector("#container");
-for (let i = 0; i < 4096; i++) {
-  const gridDivs = document.createElement("div");
-  gridDivs.id = "gridDivs";
-  gridDivs.style.outline = "1px solid black";
-  gridDivs.style.height = "10px";
-  gridDivs.style.width = "10px";
-  container.appendChild(gridDivs);
+const resetButton = document.querySelector("#reset-button");
 
-  gridDivs.addEventListener("mouseover", () => {
-    gridDivs.style.backgroundColor = "black";
-  });
+function createGrid() {
+  for (let i = 0; i < 256; i++) {
+    const gridDivs = document.createElement("div");
+    gridDivs.id = "gridDivs";
+    gridDivs.classList.add("gridDivs");
+    container.appendChild(gridDivs);
+
+    gridDivs.addEventListener("mouseover", () => {
+      gridDivs.style.backgroundColor = "black";
+    });
+  }
 }
+
+createGrid();

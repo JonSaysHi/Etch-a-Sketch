@@ -4,19 +4,20 @@ body {
   gap: 10px;
 }
 #container {
-  border: 2px solid red;
-  height: auto;
-  width: 640px;
+  outline: 2px solid red;
+  height: 600px;
+  width: 600px;
   margin: auto;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
 }
 
-/* #gridDivs {
+.gridDivs {
   outline: 1px solid black;
-  width: 10px;
-  height: 10px;
-} */
+  /* width: 10px;
+  height: 10px; */
+}
 
 #reset-button {
   padding: 5px 20px;
