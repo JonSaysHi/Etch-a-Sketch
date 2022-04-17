@@ -42,8 +42,8 @@ function createGrid(gridSize) {
     container.appendChild(divs);
     divs.classList.add("gridDivs");
     divs.addEventListener("mouseover", () => {
-      let randomColor = "#" + Math.floor(Math.random() * 19777215).toString(16);
-      divs.style.backgroundColor = randomColor;
+      divs.style.backgroundColor = "black";
+      divs.style.opacity = (parseFloat(divs.style.opacity) || 0) + 0.2;
     });
   }
 }
