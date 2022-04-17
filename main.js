@@ -1,5 +1,8 @@
 const container = document.querySelector("#container");
 const resetButton = document.querySelector("#reset-button");
+const blackButton = document.querySelector("#black-button");
+const pencilButton = document.querySelector("#pencil-button");
+const rainbowButton = document.querySelector("#rainbow-button");
 
 let gridSize = 16;
 
