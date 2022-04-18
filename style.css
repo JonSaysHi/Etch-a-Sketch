@@ -14,10 +14,8 @@ body {
   grid-template-rows: repeat(16, 1fr); */
 }
 
-.gridDivs {
-  outline: 1px solid black;
-  /* width: 10px;
-  height: 10px; */
+/* .gridDivs { */
+  /* outline: 1px solid black; */
 }
 
 button {

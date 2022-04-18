@@ -1,26 +1,46 @@
 const container = document.querySelector("#container");
 // const sizeButton = document.querySelector("#size-button");
 const ResetButton = document.querySelector("#reset-button");
-// const blackButton = document.querySelector("#black-button");
-// const pencilButton = document.querySelector("#pencil-button");
-// const rainbowButton = document.querySelector("#rainbow-button");
+const blackButton = document.querySelector("#black-button");
+const pencilButton = document.querySelector("#pencil-button");
+const rainbowButton = document.querySelector("#rainbow-button");
+const eraserButton = document.querySelector("#eraser-button");
 
 let gridSize = 16;
+
+let black_color = function () {
+  this.style.backgroundColor = "black";
+};
+
+let rainbow_color = function () {
+  let rainbowColor = "#" + Math.floor(Math.random() * 19777215).toString(16);
+  this.style.backgroundColor = rainbowColor;
+};
+
+let pencil_color = function () {
+  this.style.backgroundColor = "black";
+  this.style.opacity = (parseFloat(this.style.opacity) || 0) + 0.2;
+};
+
+let eraser_color = function () {
+  this.style.backgroundColor = "white";
+};
+
+let currentSelection = black_color;
 
 //-- Function creates grid, changing the color of squares from white to black--//
 
 function createGrid(gridSize) {
-  container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
-  container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+  let currentSelection = black_color;
   for (let i = 0; i < gridSize * gridSize; i++) {
     const divs = document.createElement("div");
-    container.appendChild(divs);
     divs.classList.add("gridDivs");
+    container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+    container.appendChild(divs);
 
     //mouseover event listener
-    divs.addEventListener("mouseover", () => {
-      divs.style.backgroundColor = "black";
-    });
+    divs.addEventListener("mouseover", currentSelection);
   }
 }
 
@@ -77,4 +97,43 @@ function clear() {
   document.querySelectorAll(".gridDivs").forEach((e) => e.remove());
   createGrid(gridSize);
 }
-blackButton.addEventListener("click", () => {});
+
+blackButton.addEventListener("click", () => {
+  console.log("test");
+  let myDivs = document.querySelectorAll(".gridDivs");
+  for (let i = 0; i < myDivs.length; i++) {
+    // myDivs[i].removeEventListener("mouseover", currentSelection);
+    myDivs[i].addEventListener("mouseover", black_color);
+  }
+  currentSelection = black_color;
+});
+
+rainbowButton.addEventListener("click", () => {
+  console.log("test");
+  myDivs = document.querySelectorAll(".gridDivs");
+  for (let i = 0; i < myDivs.length; i++) {
+    myDivs[i].removeEventListener("mouseover", currentSelection);
+    myDivs[i].addEventListener("mouseover", rainbow_color);
+  }
+  currentSelection = rainbow_color;
+});
+
+pencilButton.addEventListener("click", () => {
+  console.log("test");
+  let myDivs = document.querySelectorAll(".gridDivs");
+  for (let i = 0; i < myDivs.length; i++) {
+    myDivs[i].removeEventListener("mouseover", currentSelection);
+    myDivs[i].addEventListener("mouseover", pencil_color);
+  }
+  currentSelection = pencil_color;
+});
+
+eraserButton.addEventListener("click", () => {
+  console.log("test");
+  let myDivs = document.querySelectorAll(".gridDivs");
+  for (let i = 0; i < myDivs.length; i++) {
+    myDivs[i].removeEventListener("mouseover", currentSelection);
+    myDivs[i].addEventListener("mouseover", eraser_color);
+  }
+  currentSelection = eraser_color;
+});
